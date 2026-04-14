@@ -127,7 +127,6 @@ Estimates genome characteristics from k-mer spectra.
 - Heterozygosity: ~0.576%  
 - Coverage peak: ~50×  
 - Confirms diploid genome structure (bimodal distribution)
-
 ---
 
 # 🧪 4. De novo Genome Assembly
