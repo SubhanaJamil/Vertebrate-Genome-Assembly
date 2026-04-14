@@ -1,11 +1,11 @@
-# 🧬 Genome Assembly Pipeline Overview (Saccharomyces cerevisiae S288C)
+# Genome Assembly Pipeline Overview (Saccharomyces cerevisiae S288C)
 This repository documents a complete genome assembly workflow for *Saccharomyces cerevisiae* S288C using PacBio HiFi long reads and Illumina Hi-C data. The pipeline follows a Vertebrate Genome Project (VGP)-style approach, integrating genome profiling, de novo assembly, scaffolding, and multi-layer quality assessment.
 
 ---
 
-# 📊 Workflow Overview
+# Workflow Overview
 
-## 🧭 Pipeline Flow
+## Pipeline Flow
 
 ```
 ┌────────────────────────────────────────────┐
@@ -73,7 +73,7 @@ This repository documents a complete genome assembly workflow for *Saccharomyces
 
 ---
 
-# 📥 1. Data Acquisition
+# 1. Data Acquisition
 
 ## Input Data Types
 
@@ -85,7 +85,7 @@ This repository documents a complete genome assembly workflow for *Saccharomyces
 
 ---
 
-# 🧹 2. Data Preprocessing
+# 2. Data Preprocessing
 
 ## Dataset Organization
 
@@ -108,7 +108,7 @@ This repository documents a complete genome assembly workflow for *Saccharomyces
 
 ---
 
-# 🧬 3. Genome Profiling (k-mer Analysis)
+#  3. Genome Profiling (k-mer Analysis)
 
 ## Meryl k-mer Counting
 
@@ -127,9 +127,15 @@ Estimates genome characteristics from k-mer spectra.
 - Heterozygosity: ~0.576%  
 - Coverage peak: ~50×  
 - Confirms diploid genome structure (bimodal distribution)
----
+  
+<p align="center">
+<img width="634" height="2000" alt="genomescope_plot" src="https://github.com/user-attachments/assets/ff9ad3df-be7f-47bd-8a4c-008542b135ef" />
+</p>
+<p align="center">
+  <b>Figure 1: GenomeScope2 31-mer profile showing k-mer distribution and genome characteristics.</b>
+</p>
 
-# 🧪 4. De novo Genome Assembly
+# 4. De novo Genome Assembly
 
 ## hifiasm Assembly
 
@@ -148,19 +154,18 @@ Estimates genome characteristics from k-mer spectra.
 
 - Tool: gfastats
 - Converts assembly graphs into FASTA format for downstream analysis
-
 ---
 
-# 📏 5. Assembly Evaluation
+## Assembly Evaluation
 
-## 5.1 gfastats Statistics
+### gfastats
 
-- Contig count: ~16–17 per haplotype  
-- Total genome length: ~11–12 Mb  
-- High contiguity (N50 improvement observed)
+| Metric | Hap1 | Hap2 |
+|------|------|------|
+| Contigs | ~16 | ~17 |
+| Length | ~11.3 Mb | ~12.2 Mb |
 
 ---
-
 ## 5.2 BUSCO Analysis
 
 Evaluates gene completeness using conserved orthologs.
@@ -178,7 +183,24 @@ Reference-free validation using k-mers.
 - Confirms high assembly accuracy
 - Validates correct haplotype phasing
 - Shows consistent k-mer distribution between reads and assembly
+<p align="center">
 
+ <img width="634" height="1500" alt="merqury_cn_plot" src="https://github.com/user-attachments/assets/4fca23aa-56dd-4a26-b2d9-b439fcee5081" />
+
+</p>
+
+<p align="center">
+  <b>Figure 2: Merqury CN plot. This plot tracks the multiplicity of each k-mer found in the HiFi read set and colors it by the number of times it is found in a given assembly. Merqury connects the midpoint of each histogram bin with a line, giving the illusion of a smooth curve.</b>
+</p>
+  
+<p align="center">
+
+<img width="634" height="494" alt="merqury_hap1hap2_asm" src="https://github.com/user-attachments/assets/80e068af-1ff2-4bcc-b6ab-e6fa0394371b" />
+</p>
+
+<p align="center">
+  <b>Figure 3: Merqury ASM plot. This plot tracks the multiplicity of each k-mer found in the HiFi read set and colors it according to which assemblies contain those k-mers. This can tell you which k-mers are found in only one assembly or shared between them.</b>
+</p>
 ---
 
 # 🧱 6. Scaffolding
@@ -221,14 +243,27 @@ Reference-free validation using k-mers.
 
 ---
 
-# 🧾 8. Final Genome Assembly
+### Results
 
-## Final Output Features
+| Feature | Value |
+|--------|------|
+| Scaffolds | ~16 |
+| Genome Size | ~11.7 Mb |
+| Accuracy | High |
 
-- Chromosome-scale scaffolds achieved
-- Assembly length consistent with reference genome (~11.7 Mb)
-- High structural accuracy confirmed via Hi-C maps
-- Near-reference-quality genome achieved
+---
+
+## Final Results
+
+| Feature | Value |
+|--------|------|
+| Organism | Saccharomyces cerevisiae |
+| Genome Size | ~11.7 Mb |
+| Ploidy | Diploid |
+| Contigs | ~16–17 |
+| Scaffolds | ~16 |
+| Heterozygosity | ~0.576% |
+| Assembly Quality | Near reference-level |
 
 ---
 
