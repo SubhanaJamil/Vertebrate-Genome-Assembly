@@ -41,30 +41,15 @@ This repository documents a complete genome assembly workflow for *Saccharomyces
                      │
                      ▼
 ┌────────────────────────────────────────────┐
-│     5. Assembly Evaluation (Pre-scaffold)  │
-│  - gfastats (contig statistics)            │
-│  - BUSCO (gene completeness)               │
-│  - Merqury (k-mer validation)              │
-└────────────────────────────────────────────┘
-                     │
-                     ▼
-┌────────────────────────────────────────────┐
-│          6. Scaffolding Stage              │
+│          5. Scaffolding Stage              │
 │  ├── Bionano Optical Mapping               │
 │  └── Hi-C based scaffolding (YaHS)         │
 └────────────────────────────────────────────┘
+       
                      │
                      ▼
 ┌────────────────────────────────────────────┐
-│     7. Hi-C Mapping & Contact Maps        │
-│  - BWA-MEM2 alignment                      │
-│  - PretextMap generation                   │
-│  - Contact map visualization               │
-└────────────────────────────────────────────┘
-                     │
-                     ▼
-┌────────────────────────────────────────────┐
-│     8. Final Genome Assembly              │
+│     6. Final Genome Assembly              │
 │  - YaHS chromosome scaffolds              │
 │  - Final FASTA genome                     │
 │  - Pretext validation                     │
